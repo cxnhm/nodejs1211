@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            position: absolute;
+            left: 200px;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="div1" draggable="true"></div>
+<div id="div2"></div>
+
+<script>
+    var oDiv1 = document.getElementById("div1");
+    var oDiv2 = document.getElementById("div2");
+
+
+    //被拖拽元素
+    //开始拖拽的时候
+    /*oDiv1.ondragstart = function () {
+        console.log("drag start");
+    }
+    //拖拽中
+    oDiv1.ondrag = function () {
+        console.log("drag");
+    }
+    //拖拽结束
+    oDiv1.ondragend = function () {
+        console.log("drag end");
+    }*/
+
+    //目的元素
+    //被拖入的时候
+    oDiv1.ondragenter = function (ev) {
+        //清除浏览器默认
+        ev.preventDefault();
+        console.log("drag enter");
+    }
+    //在内部的时候
+    oDiv2.ondragover = function (ev) {
+        ev.preventDefault();
+        console.log("drag over");
+    }
+    //离开
+    oDiv2.ondragleave = function () {
+        console.log("drag leave");
+    }
+    //扔
+    oDiv2.ondrop = function (ev) {
+        console.log("drop");
+        oDiv1.remove();
+    }
+
+
+</script>
+</body>
+</html>
