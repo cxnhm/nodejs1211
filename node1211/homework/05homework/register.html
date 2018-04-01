@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #bg{
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        #name{
+            font-size: 14px;
+            position: absolute;
+            top: 245px;
+            left: 85px;
+        }
+        #username{
+            position: absolute;
+            top: 247px;
+            left: 143px;
+            outline: 0;
+        }
+        #pass{
+            font-size: 14px;
+            position: absolute;
+            top: 280px;
+            left: 85px;
+        }
+        #password{
+            position: absolute;
+            top: 280px;
+            left: 143px;
+            outline: 0;
+        }
+        #register{
+            width: 40px;
+            background-color: black;
+            color: white;
+            position: absolute;
+            top: 317px;
+            left: 183px;
+            outline: 0;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="all">
+    <img src="img/1B.png" alt="" id="bg">
+    <form action="/register/post" method="post">
+        <label for="username" id="name">用户名:</label>
+        <input type="text" id="username" placeholder="请输入用户名">
+        <br>
+        <label for="password" id="pass">密码:</label>
+        <input type="text"  id="password" placeholder="请输入密码">
+        <br>
+        <input type="button" id="register" value="注册">
+
+
+
+
+    </form>
+
+
+
+
+
+
+</div>
+</body>
+</html>

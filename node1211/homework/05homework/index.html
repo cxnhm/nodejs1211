@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #picture{
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        #turn{
+            width: 78%;
+            position: absolute;
+            top: 184px;
+            left: 44px;
+        }
+        #round{
+            width: 106px;
+            position: absolute;
+            top: 283px;
+            left: 150px;
+        }
+        #button{
+            width: 100px;
+            position: absolute;
+            top: 267px;
+            left: 154px;
+        }
+        #activity{
+            color: white;
+            font-size: 14px;
+            position: absolute;
+            bottom: 164px;
+            left: 159px;
+        }
+
+        #name{
+            position: absolute;
+            bottom: 140px;
+            left: 61px;
+            font-size: 14px;
+        }
+        #number{
+            position: absolute;
+            bottom: 140px;
+            left: 176px;
+            font-size: 14px;
+        }
+        #prize{
+            position: absolute;
+            bottom: 140px;
+            left: 312px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <img src="img/2B.png" alt="" id="picture">
+    <img src="img/转.png" alt="" id="turn">
+    <img src="img/shadow.png" alt="" id="round">
+    <img src="img/按钮.png" alt="" id="button">
+    <div id="activity">活动说明</div>
+    <div id="name">名字</div>
+    <div id="number">手机号</div>
+    <div id="prize">奖品</div>
+</div>
+<script>
+    var oBtn = document.getElementById("button");
+    var oTurn = document.getElementById("turn");
+    //旋转度数
+    var deg = 0;
+    //只能点击一次
+    var flag = true;
+    //定时器
+    var timer = null;
+    //结束的角度
+    var edeStop = null;
+    oBtn.onclick = function () {
+        if(flag==true){
+            round();
+            flag = false;
+        }
+
+    }
+
+        function round() {
+            timer = setInterval(function () {
+                if(deg == 360){
+                    deg = 0;
+                }
+                deg +=20;
+                oTurn.style.transform = "rotate("+ deg + "deg)";
+                if (edeStop ) {
+                    Stop();
+                }
+            },150)
+
+        }
+
+    function Stop() {
+        var timerStop = setTimeout(function () {
+            if (edeStop == deg) {
+                clearInterval(Timer);
+
+                var index = 0;
+                var degs = 9;
+
+                var timer1 = setInterval(function () {
+
+                    deg += odeg
+                    oTurn.style.transform = "rotate(" + deg + "deg)";
+                    index++;
+                    if (index == 8) {
+                        index = 0;
+                        odeg--;
+                        if(degs == 0){
+                            clearInterval(timer1);
+                        }
+                    }
+
+                }, 20)
+
+            }
+
+        }, 1000)
+    }
+
+    function ajax_get(url,callback) {
+        var xhr = null;
+        if(window.XMLHttpRequest){
+            xhr = new XMLHttpRequest();
+        }else {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState == 4){
+                callback(xhr.responseText);
+            }
+        };
+        xhr.open("get",url,true);
+        xhr.send();
+    }
+</script>
+</body>
+</html>
